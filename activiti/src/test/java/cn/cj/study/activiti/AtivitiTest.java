@@ -22,7 +22,7 @@ import cn.cj.study.activiti.model._ServiceTask;
 import cn.cj.study.activiti.model._StartEvent;
 import cn.cj.study.activiti.model._UserTask;
 
-public class ativitiTest {
+public class AtivitiTest {
 
 	@Test
 	public void createDBTable() {
