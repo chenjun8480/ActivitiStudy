@@ -2,9 +2,12 @@ package cn.cj.study.activiti;
 
 import org.activiti.bpmn.converter.BpmnXMLConverter;
 import org.activiti.bpmn.model.BpmnModel;
+import org.activiti.bpmn.model.BusinessRuleTask;
 import org.activiti.bpmn.model.EndEvent;
+import org.activiti.bpmn.model.ManualTask;
 import org.activiti.bpmn.model.Message;
 import org.activiti.bpmn.model.Process;
+import org.activiti.bpmn.model.ReceiveTask;
 import org.activiti.bpmn.model.ScriptTask;
 import org.activiti.bpmn.model.SequenceFlow;
 import org.activiti.bpmn.model.ServiceTask;
@@ -70,18 +73,17 @@ public class AtivitiTest {
 		_ScriptTask task = new _ScriptTask();
 		return task.getTask();
 	}
-	
+
 	private ServiceTask getServiceTask() {
 		_ServiceTask task = new _ServiceTask();
 		return task.getTask();
 	}
-	
+
 	private ServiceTask getWebServiceTask() {
 		_ServiceTask task = new _ServiceTask();
 		return task.getWebServiceTask();
 	}
-	
-	
+
 	@Test
 	public void bpmnXml() {
 		BpmnModel model = new BpmnModel();
@@ -100,21 +102,33 @@ public class AtivitiTest {
 		// 顺序流
 		SequenceFlow flow = getSequenceFlow();
 		process.addFlowElement(flow);
-		//用户任务
+		// 用户任务
 		UserTask userTask = getUserTask();
 		process.addFlowElement(userTask);
-		//脚本任务
+		// 脚本任务
 		ScriptTask scriptTask = getScriptTask();
 		process.addFlowElement(scriptTask);
 		// Java Service任务
 		ServiceTask serviceTask = getServiceTask();
 		process.addFlowElement(serviceTask);
-		//Web Service任务
+		// Web Service任务
 		ServiceTask webServiceTask = getWebServiceTask();
 		process.addFlowElement(webServiceTask);
-		//业务规则任务
-		
-		
+		// 业务规则任务
+		BusinessRuleTask businessRuleTask = null;
+		// 邮件任务
+		ServiceTask mailTask = null;
+		// Camel任务
+		ServiceTask camelTask = null;
+		// Mule任务
+		ServiceTask muleTask = null;
+		// 手动任务
+		ManualTask manualTask =null;
+		// 接收任务
+		ReceiveTask receiveTask = null;
+		// Shell任务
+		ServiceTask shellTask = null;
+
 		model.addProcess(process);
 		showXML(model);
 	}
