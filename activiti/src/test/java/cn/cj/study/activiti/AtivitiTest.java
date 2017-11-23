@@ -40,7 +40,7 @@ public class AtivitiTest {
 	private Process getProcess() {
 		Process process = new Process();
 		process.setId("processId");
-		process.setName("processName");
+		process.setName("processName"); 
 		return process;
 	}
 
