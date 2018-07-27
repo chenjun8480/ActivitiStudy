@@ -16,7 +16,7 @@
 		<!-- junit版本号 -->
 		<junit.version>4.10</junit.version>
 		<!-- mybatis版本号 -->
-		<mybatis.version>3.2.1</mybatis.version>
+		<!-- <mybatis.version>3.2.1</mybatis.version> -->
 	</properties>
 
 	<dependencies>
@@ -130,18 +130,18 @@
 		</dependency>
 
 		<!--mybatis依赖 -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
 			<version>${mybatis.version}</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- mybatis/spring包 -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.2.0</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- mysql驱动包 -->
 		<dependency>

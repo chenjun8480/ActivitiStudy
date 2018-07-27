@@ -128,7 +128,6 @@ public class AtivitiTest {
 		ReceiveTask receiveTask = null;
 		// Shell任务
 		ServiceTask shellTask = null;
-
 		model.addProcess(process);
 		showXML(model);
 	}
