@@ -102,7 +102,5 @@
 	<bean id="managementService" factory-bean="processEngine"
 		factory-method="getManagementService" />
 
-	<!-- 自定义Bean -->
-	<bean id="IBaseBeanService" class="cn.cj.study.activiti.impl.BaseBeanService" />
-
+	<import resource="ref-beans.xml" />
 </beans>
