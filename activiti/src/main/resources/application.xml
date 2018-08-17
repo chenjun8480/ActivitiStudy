@@ -18,30 +18,36 @@
            http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
-
 	<!-- 引入jdbc配置文件 -->
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<!-- <property name="locations" value="classpath:properties/*.properties" /> -->
 		<property name="locations">
-			<list>
-				<value>classpath:properties/*.properties</value>
-				<!--要是有多个配置文件，只需在这里继续添加即可 -->
-			</list>
-		</property>
+            <list>
+                <value>classpath:properties/*.properties</value>
+            </list>
+        </property>
 	</bean>
 
 	<!-- 配置数据源 -->
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
-		<!-- 不使用properties来配置 -->
-		<!--
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/activiti" />
-		<property name="username" value="root" />
-		<property name="password" value="ROOT" />
-		-->
-		<!-- 使用properties来配置 -->
-		<property name="driverClassName">
+		<property name="driverClass" value="${jdbc_driverClassName}" />
+		<property name="url" value="${jdbc_url}" />
+		<property name="username" value="${jdbc_username}" />
+		<property name="password" value="${jdbc_password}" />
+	</bean>
+	<!-- <bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		org.springframework.jdbc.datasource.DriverManagerDataSource
+		org.springframework.jdbc.datasource.SimpleDriverDataSource
+		不使用properties来配置
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" /> 
+			<property name="url" value="jdbc:mysql://localhost:3306/activiti" /> <property 
+			name="username" value="root" /> <property name="password" value="ROOT" />
+		使用properties来配置
+		
+		<property name="driverClass">
 			<value>${jdbc_driverClassName}</value>
 		</property>
 		<property name="url">
@@ -53,7 +59,7 @@
 		<property name="password">
 			<value>${jdbc_password}</value>
 		</property>
-	</bean>
+	</bean> -->
 
 	<!-- 配置事务 -->
 	<bean id="txManager"
@@ -103,4 +109,5 @@
 		factory-method="getManagementService" />
 
 	<import resource="ref-beans.xml" />
+	
 </beans>
